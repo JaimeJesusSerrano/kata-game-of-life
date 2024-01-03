@@ -10,6 +10,14 @@ class Cell {
 		this.status = status;
 	}
 
+	isAlive() {
+		return this.status === CellStatus.alive;
+	}
+
+	isDead() {
+		return this.status === CellStatus.dead;
+	}
+
 	getStatus() {
 		return this.status;
 	}
@@ -19,8 +27,8 @@ class Cell {
 	}
 
 	calculateStatusBasedOnNeighbors(neighbors: number): CellStatus {
-		if (neighbors < 2) return CellStatus.dead;
-		if (neighbors > 3) return CellStatus.dead;
+		if (this.isAlive() && neighbors < 2) return CellStatus.dead;
+		if (this.isAlive() && neighbors > 3) return CellStatus.dead;
 		return undefined;
 	}
 }
