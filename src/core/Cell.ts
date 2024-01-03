@@ -30,7 +30,8 @@ class Cell {
 		if (this.isAlive() && neighbors < 2) return CellStatus.dead;
 		if (this.isAlive() && neighbors > 3) return CellStatus.dead;
 		if (this.isAlive() && (neighbors === 2 || neighbors === 3)) return CellStatus.alive;
-		return undefined;
+		if (this.isDead() && neighbors === 3) return CellStatus.alive;
+		return this.status;
 	}
 }
 

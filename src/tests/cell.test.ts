@@ -34,4 +34,8 @@ describe('The Bowling Game', () => {
 	it('Cualquier célula viva con dos o tres vecinos, vive', () => {
 		expect(cellAlive.calculateStatusBasedOnNeighbors(2)).toBe(CellStatus.alive);
 	});
+
+	it('Célula muerta con 3 vecinos, resucita', () => {
+		expect(cellDead.calculateStatusBasedOnNeighbors(3)).toBe(CellStatus.alive);
+	});
 });
