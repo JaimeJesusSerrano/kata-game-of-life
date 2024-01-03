@@ -1,4 +1,4 @@
-import {Cell, CellStatus} from '../core/Cell';
+import { Cell, CellStatus } from '../core/Cell';
 
 describe('The Bowling Game', () => {
 	let cell: Cell;
@@ -12,12 +12,12 @@ describe('The Bowling Game', () => {
 	});
 
 	it('should be able to get the cell status as dead by default', () => {
-		cell.getStatus()
+		cell.getStatus();
 		expect(cell.getStatus()).toBe(CellStatus.dead);
 	});
 
 	it('should be able to modify the cell status', () => {
-		cell.setStatus(CellStatus.alive)
+		cell.setStatus(CellStatus.alive);
 		expect(cell.getStatus()).toBe(CellStatus.alive);
 	});
 });
