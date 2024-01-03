@@ -20,6 +20,7 @@ class Cell {
 
 	calculateStatusBasedOnNeighbors(neighbors: number): CellStatus {
 		if (neighbors < 2) return CellStatus.dead;
+		if (neighbors > 3) return CellStatus.dead;
 		return undefined;
 	}
 }
