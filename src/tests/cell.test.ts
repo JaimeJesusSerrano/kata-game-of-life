@@ -20,4 +20,8 @@ describe('The Bowling Game', () => {
 		cell.setStatus(CellStatus.alive);
 		expect(cell.getStatus()).toBe(CellStatus.alive);
 	});
+
+	it('Cualquier célula viva con menos de dos vecinos vivos muere, por poca población', () => {
+		expect(cell.calculateStatusBasedOnNeighbors(1)).toBe(CellStatus.dead);
+	});
 });

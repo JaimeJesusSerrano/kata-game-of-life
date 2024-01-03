@@ -17,6 +17,11 @@ class Cell {
 	setStatus(status: CellStatus) {
 		this.status = status;
 	}
+
+	calculateStatusBasedOnNeighbors(neighbors: number): CellStatus {
+		if (neighbors < 2) return CellStatus.dead;
+		return undefined;
+	}
 }
 
 export { Cell, CellStatus };
