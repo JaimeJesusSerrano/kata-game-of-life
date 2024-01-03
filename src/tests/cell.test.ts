@@ -30,4 +30,8 @@ describe('The Bowling Game', () => {
 	it('Cualquier célula viva con mas de tres vecinos muere, por sobrepoblación', () => {
 		expect(cellAlive.calculateStatusBasedOnNeighbors(4)).toBe(CellStatus.dead);
 	});
+
+	it('Cualquier célula viva con dos o tres vecinos, vive', () => {
+		expect(cellAlive.calculateStatusBasedOnNeighbors(2)).toBe(CellStatus.alive);
+	});
 });
