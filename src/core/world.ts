@@ -1,7 +1,8 @@
+import { cloneDeep } from 'lodash';
+
 import { Cell, CellStatus } from '../core/cell';
 
 const Alive = CellStatus.alive;
-// const Dead = CellStatus.dead;
 
 class World {
 	private readonly lastYIndex: number;
@@ -50,7 +51,7 @@ class World {
 	};
 
 	getNextCellMatrix = (): Cell[][] => {
-		const newCellMatrix = [...this.cellMatrix];
+		const newCellMatrix = cloneDeep(this.cellMatrix);
 
 		for (let x = 0; x <= this.lastXIndex; x++) {
 			for (let y = 0; y <= this.lastYIndex; y++) {
