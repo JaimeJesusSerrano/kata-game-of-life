@@ -38,4 +38,16 @@ describe('The World', () => {
 		expect(world.calculateNeighboursFromCoors(2, 1)).toBe(3);
 		expect(world.calculateNeighboursFromCoors(2, 2)).toBe(2);
 	});
+
+	it('print in console correctly', () => {
+		const initialStatus = [
+			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
+			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
+			[new Cell(Alive), new Cell(Dead), new Cell(Dead)],
+		];
+
+		const world = new World(initialStatus);
+
+		expect(world.getStringToPrint()).toBe(' [ ] [ ] [ ]\n [ ] [O] [O]\n [O] [ ] [ ]\n');
+	});
 });

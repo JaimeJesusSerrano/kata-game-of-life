@@ -15,6 +15,18 @@ class World {
 
 	getCellMatrix = () => this.cellMatrix;
 
+	getStringToPrint = (): string => {
+		let stringToPrint = '';
+		for (let x = 0; x <= this.lastXIndex; x++) {
+			for (let y = 0; y <= this.lastYIndex; y++) {
+				const isCellAlive = this.cellMatrix[x][y].getStatus() === Alive;
+				stringToPrint += isCellAlive ? ' [O]' : ' [ ]';
+			}
+			stringToPrint += '\n';
+		}
+		return stringToPrint;
+	};
+
 	calculateNeighboursFromCoors(x: number, y: number) {
 		let numberOfNeighbours = 0;
 
