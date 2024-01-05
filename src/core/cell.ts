@@ -4,9 +4,7 @@ enum CellStatus {
 }
 
 class Cell {
-	private status: CellStatus;
-
-	constructor(status: CellStatus) {
+	constructor(private status: CellStatus) {
 		this.status = status;
 	}
 
