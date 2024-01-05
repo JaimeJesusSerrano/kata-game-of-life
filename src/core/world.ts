@@ -49,20 +49,19 @@ class World {
 		return numberOfNeighbours;
 	};
 
-	// getNewCellMatrixByTick = (): Cell[][] => {
-	// 	const newCellMatrix = Cell[][];
+	getNextCellMatrix = (): Cell[][] => {
+		const newCellMatrix = [...this.cellMatrix];
 
-	// 	for (let x = 0; x <= this.lastXIndex; x++) {
-	// 		for (let y = 0; y <= this.lastYIndex; y++) {
-	// 			newCellMatrix[x][y] = new Cell(Alive)
-	// 			const isCellAlive = this.cellMatrix[x][y].getStatus() === Alive;
-	// 			stringToPrint += isCellAlive ? ' [O]' : ' [ ]';
-	// 		}
-	// 		stringToPrint += '\n';
-	// 	}
+		for (let x = 0; x <= this.lastXIndex; x++) {
+			for (let y = 0; y <= this.lastYIndex; y++) {
+				const neighbors = this.calculateNeighboursFromCoors(x, y);
+				const newStatus = this.cellMatrix[x][y].calculateNextStatusBasedOnNeighbours(neighbors);
+				newCellMatrix[x][y].setStatus(newStatus);
+			}
+		}
 
-	// 	return newCellMatrix;
-	// }
+		return newCellMatrix;
+	};
 
 	private isCellMatrixValidByCoors = (x: number, y: number) => {
 		return x >= 0 && x <= this.lastXIndex && y >= 0 && y <= this.lastYIndex;

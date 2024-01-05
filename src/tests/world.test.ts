@@ -39,7 +39,7 @@ describe('The World', () => {
 		expect(world.calculateNeighboursFromCoors(2, 2)).toBe(2);
 	});
 
-	it('print in console correctly', () => {
+	it('print it correctly', () => {
 		const initialStatus = [
 			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
 			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
@@ -49,5 +49,110 @@ describe('The World', () => {
 		const world = new World(initialStatus);
 
 		expect(world.getStringToPrint()).toBe(' [ ] [ ] [ ]\n [ ] [O] [O]\n [O] [ ] [ ]\n');
+	});
+
+	it('print next status correctly', () => {
+		const initialStatus = [
+			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
+			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
+			[new Cell(Alive), new Cell(Dead), new Cell(Dead)],
+		];
+
+		const world = new World(initialStatus);
+		const worldNextTick = new World(world.getNextCellMatrix());
+
+		expect(worldNextTick.getStringToPrint()).toBe(' [ ] [ ] [ ]\n [ ] [O] [ ]\n [ ] [ ] [ ]\n');
+	});
+
+	it('print next status correctly with a complex example', () => {
+		const initialStatus = [
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Alive),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Alive),
+				new Cell(Alive),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+			[
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+				new Cell(Dead),
+			],
+		];
+
+		const world = new World(initialStatus);
+		const worldNextTick = new World(world.getNextCellMatrix());
+
+		expect(worldNextTick.getStringToPrint()).toBe(
+			' [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [O] [O] [ ] [ ] [ ]\n [ ] [ ] [ ] [O] [O] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n'
+		);
 	});
 });
