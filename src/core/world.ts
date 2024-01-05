@@ -27,7 +27,7 @@ class World {
 		return stringToPrint;
 	};
 
-	calculateNeighboursFromCoors(x: number, y: number) {
+	calculateNeighboursFromCoors = (x: number, y: number) => {
 		let numberOfNeighbours = 0;
 
 		/**
@@ -47,7 +47,22 @@ class World {
 		if (this.isAliveNeighboursByCoors(x + 1, y + 1)) numberOfNeighbours++;
 
 		return numberOfNeighbours;
-	}
+	};
+
+	// getNewCellMatrixByTick = (): Cell[][] => {
+	// 	const newCellMatrix = Cell[][];
+
+	// 	for (let x = 0; x <= this.lastXIndex; x++) {
+	// 		for (let y = 0; y <= this.lastYIndex; y++) {
+	// 			newCellMatrix[x][y] = new Cell(Alive)
+	// 			const isCellAlive = this.cellMatrix[x][y].getStatus() === Alive;
+	// 			stringToPrint += isCellAlive ? ' [O]' : ' [ ]';
+	// 		}
+	// 		stringToPrint += '\n';
+	// 	}
+
+	// 	return newCellMatrix;
+	// }
 
 	private isCellMatrixValidByCoors = (x: number, y: number) => {
 		return x >= 0 && x <= this.lastXIndex && y >= 0 && y <= this.lastYIndex;

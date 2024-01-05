@@ -30,7 +30,7 @@ class Cell {
 	 * Any live cell with two or three live neighbours lives on the next generation
 	 * Any dead cell with exactly three live neighbours becomes a live cell
 	 */
-	calculateStatusBasedOnNeighbours(neighbors: number): CellStatus {
+	calculateNextStatusBasedOnNeighbours(neighbors: number): CellStatus {
 		if (this.isAlive() && neighbors < 2) return CellStatus.dead;
 		if (this.isAlive() && neighbors > 3) return CellStatus.dead;
 		if (this.isAlive() && (neighbors === 2 || neighbors === 3)) return CellStatus.alive;
