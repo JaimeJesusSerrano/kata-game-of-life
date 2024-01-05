@@ -1,6 +1,6 @@
 import { Cell, CellStatus } from '../core/Cell';
 
-describe('The Bowling Game', () => {
+describe('Cell', () => {
 	let cellAlive: Cell;
 	let cellDead: Cell;
 
