@@ -1,4 +1,4 @@
-import { Cell, CellStatus } from '../core/Cell';
+import { Cell, CellStatus } from '../core/cell';
 
 describe('The World', () => {
 });
