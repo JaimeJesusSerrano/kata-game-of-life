@@ -54,7 +54,7 @@ class World {
 		return numberOfNeighbours;
 	};
 
-	getNextGenerationCellMatrix = (): Cell[][] => {
+	getNextGeneration = (): World => {
 		const newCellMatrix = cloneDeep(this.cellMatrix);
 
 		for (let x = 0; x <= this.lastXIndex; x++) {
@@ -65,7 +65,7 @@ class World {
 			}
 		}
 
-		return newCellMatrix;
+		return new World(newCellMatrix);
 	};
 
 	private isCellMatrixValidByCoors = (x: number, y: number): boolean => {

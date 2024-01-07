@@ -91,6 +91,6 @@ let world = new World(initialStatus);
 console.log(world.toString());
 
 setInterval(() => {
-	world = new World(world.getNextGenerationCellMatrix());
+	world = world.getNextGeneration();
 	console.log(world.toString());
 }, 1000);

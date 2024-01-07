@@ -59,7 +59,7 @@ describe('The World', () => {
 		];
 
 		const world = new World(initialStatus);
-		const worldNextTick = new World(world.getNextGenerationCellMatrix());
+		const worldNextTick = world.getNextGeneration();
 
 		expect(worldNextTick.toString()).toBe(' [ ] [ ] [ ]\n [ ] [O] [ ]\n [ ] [O] [ ]\n');
 	});
@@ -149,7 +149,7 @@ describe('The World', () => {
 		];
 
 		const world = new World(initialStatus);
-		const worldNextTick = new World(world.getNextGenerationCellMatrix());
+		const worldNextTick = world.getNextGeneration();
 
 		expect(worldNextTick.toString()).toBe(
 			' [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [O] [O] [ ] [ ] [ ]\n [ ] [ ] [ ] [O] [O] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n'
