@@ -48,7 +48,7 @@ describe('The World', () => {
 
 		const world = new World(initialStatus);
 
-		expect(world.getStringToPrint()).toBe(' [ ] [ ] [ ]\n [ ] [O] [O]\n [O] [ ] [ ]\n');
+		expect(world.toString()).toBe(' [ ] [ ] [ ]\n [ ] [O] [O]\n [O] [ ] [ ]\n');
 	});
 
 	it('print next status correctly', () => {
@@ -59,9 +59,9 @@ describe('The World', () => {
 		];
 
 		const world = new World(initialStatus);
-		const worldNextTick = new World(world.getNextCellMatrix());
+		const worldNextTick = new World(world.getNextGenerationCellMatrix());
 
-		expect(worldNextTick.getStringToPrint()).toBe(' [ ] [ ] [ ]\n [ ] [O] [ ]\n [ ] [ ] [ ]\n');
+		expect(worldNextTick.toString()).toBe(' [ ] [ ] [ ]\n [ ] [O] [ ]\n [ ] [O] [ ]\n');
 	});
 
 	it('print next status correctly with a complex example', () => {
@@ -149,9 +149,9 @@ describe('The World', () => {
 		];
 
 		const world = new World(initialStatus);
-		const worldNextTick = new World(world.getNextCellMatrix());
+		const worldNextTick = new World(world.getNextGenerationCellMatrix());
 
-		expect(worldNextTick.getStringToPrint()).toBe(
+		expect(worldNextTick.toString()).toBe(
 			' [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [O] [O] [ ] [ ] [ ]\n [ ] [ ] [ ] [O] [O] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]\n'
 		);
 	});

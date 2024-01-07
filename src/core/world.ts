@@ -16,19 +16,23 @@ class World {
 
 	getCellMatrix = () => this.cellMatrix;
 
-	getStringToPrint = (): string => {
+	toString = (): string => {
 		let stringToPrint = '';
+		const aliveCell = ' [O]';
+		const deadCell = ' [ ]';
+		const endOfLine = '\n';
+
 		for (let x = 0; x <= this.lastXIndex; x++) {
 			for (let y = 0; y <= this.lastYIndex; y++) {
 				const isCellAlive = this.cellMatrix[x][y].getStatus() === Alive;
-				stringToPrint += isCellAlive ? ' [O]' : ' [ ]';
+				stringToPrint += isCellAlive ? aliveCell : deadCell;
 			}
-			stringToPrint += '\n';
+			stringToPrint += endOfLine;
 		}
 		return stringToPrint;
 	};
 
-	calculateNeighboursFromCoors = (x: number, y: number) => {
+	calculateNeighboursFromCoors = (x: number, y: number): number => {
 		let numberOfNeighbours = 0;
 
 		/**
@@ -50,7 +54,7 @@ class World {
 		return numberOfNeighbours;
 	};
 
-	getNextCellMatrix = (): Cell[][] => {
+	getNextGenerationCellMatrix = (): Cell[][] => {
 		const newCellMatrix = cloneDeep(this.cellMatrix);
 
 		for (let x = 0; x <= this.lastXIndex; x++) {
@@ -64,11 +68,11 @@ class World {
 		return newCellMatrix;
 	};
 
-	private isCellMatrixValidByCoors = (x: number, y: number) => {
+	private isCellMatrixValidByCoors = (x: number, y: number): boolean => {
 		return x >= 0 && x <= this.lastXIndex && y >= 0 && y <= this.lastYIndex;
 	};
 
-	private isAliveNeighboursByCoors = (x: number, y: number) => {
+	private isAliveNeighboursByCoors = (x: number, y: number): boolean => {
 		return this.isCellMatrixValidByCoors(x, y) && this.cellMatrix[x][y].getStatus() === Alive;
 	};
 }

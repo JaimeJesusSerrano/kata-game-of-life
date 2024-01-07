@@ -88,9 +88,9 @@ const initialStatus = [
 ];
 
 let world = new World(initialStatus);
-console.log(world.getStringToPrint());
+console.log(world.toString());
 
 setInterval(() => {
-	world = new World(world.getNextCellMatrix());
-	console.log(world.getStringToPrint());
+	world = new World(world.getNextGenerationCellMatrix());
+	console.log(world.toString());
 }, 1000);

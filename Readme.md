@@ -14,6 +14,10 @@ Include:
 * `npm install`
 * `npm test`
 
+### Run world example
+* `npm run compile:build`
+* `node ./lib/world-example.js`
+
 ### ESLint
 [TypeScript ESLint Rules](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
 
