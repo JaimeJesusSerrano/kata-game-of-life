@@ -4,8 +4,14 @@ enum CellStatus {
 }
 
 class Cell {
-	constructor(private status: CellStatus) {
-		this.status = status;
+	private constructor(private readonly status: CellStatus) {}
+
+	static create(status: CellStatus) {
+		if (status === undefined || status === null) {
+			throw new Error('Invalid cell status');
+		}
+
+		return new Cell(status);
 	}
 
 	isAlive() {

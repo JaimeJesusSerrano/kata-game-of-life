@@ -7,9 +7,9 @@ const Dead = CellStatus.dead;
 describe('The World', () => {
 	it('creates a cell matrix for a given cell status', () => {
 		const initialStatus = [
-			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
-			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
-			[new Cell(Alive), new Cell(Dead), new Cell(Dead)],
+			[Cell.create(Dead), Cell.create(Dead), Cell.create(Dead)],
+			[Cell.create(Dead), Cell.create(Alive), Cell.create(Alive)],
+			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
 		const world = new World(initialStatus);
@@ -19,9 +19,9 @@ describe('The World', () => {
 
 	it('number of alive neighbours is calculate correctly', () => {
 		const initialStatus = [
-			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
-			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
-			[new Cell(Alive), new Cell(Dead), new Cell(Dead)],
+			[Cell.create(Dead), Cell.create(Dead), Cell.create(Dead)],
+			[Cell.create(Dead), Cell.create(Alive), Cell.create(Alive)],
+			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
 		const world = new World(initialStatus);
@@ -41,9 +41,9 @@ describe('The World', () => {
 
 	it('print it correctly', () => {
 		const initialStatus = [
-			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
-			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
-			[new Cell(Alive), new Cell(Dead), new Cell(Dead)],
+			[Cell.create(Dead), Cell.create(Dead), Cell.create(Dead)],
+			[Cell.create(Dead), Cell.create(Alive), Cell.create(Alive)],
+			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
 		const world = new World(initialStatus);
@@ -53,9 +53,9 @@ describe('The World', () => {
 
 	it('print next status correctly', () => {
 		const initialStatus = [
-			[new Cell(Dead), new Cell(Dead), new Cell(Dead)],
-			[new Cell(Dead), new Cell(Alive), new Cell(Alive)],
-			[new Cell(Alive), new Cell(Dead), new Cell(Dead)],
+			[Cell.create(Dead), Cell.create(Dead), Cell.create(Dead)],
+			[Cell.create(Dead), Cell.create(Alive), Cell.create(Alive)],
+			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
 		const world = new World(initialStatus);
@@ -67,84 +67,84 @@ describe('The World', () => {
 	it('print next status correctly with a complex example', () => {
 		const initialStatus = [
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Alive),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Alive),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Alive),
-				new Cell(Alive),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Alive),
+				Cell.create(Alive),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 			[
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
-				new Cell(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
+				Cell.create(Dead),
 			],
 		];
 
