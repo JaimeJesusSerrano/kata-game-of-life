@@ -20,7 +20,7 @@ class Cell {
 		return this.status;
 	}
 
-	nextCellStatus(neighbours: number) {
+	getNextCellStatus(neighbours: number) {
 		return new Cell(this.calculateNextStatusBasedOnNeighbours(neighbours));
 	}
 

@@ -43,7 +43,7 @@ class World {
 			newCellMatrix[x] = [];
 			for (let y = 0; y <= this.lastYIndex; y++) {
 				const neighbors = this.calculateNeighboursFromCoors(x, y);
-				newCellMatrix[x][y] = this.cellMatrix[x][y].nextCellStatus(neighbors);
+				newCellMatrix[x][y] = this.cellMatrix[x][y].getNextCellStatus(neighbors);
 			}
 		}
 
