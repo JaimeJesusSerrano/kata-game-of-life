@@ -87,7 +87,7 @@ const initialStatus = [
 	],
 ];
 
-let world = new World(initialStatus);
+let world = World.createFrom(initialStatus);
 console.log(world.toString());
 
 setInterval(() => {

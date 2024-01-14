@@ -12,7 +12,7 @@ describe('The World', () => {
 			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
-		const world = new World(initialStatus);
+		const world = World.createFrom(initialStatus);
 
 		expect(world.getCellMatrix()).toEqual(initialStatus);
 	});
@@ -24,7 +24,7 @@ describe('The World', () => {
 			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
-		const world = new World(initialStatus);
+		const world = World.createFrom(initialStatus);
 
 		expect(world.calculateNeighboursFromCoors(0, 0)).toBe(1);
 		expect(world.calculateNeighboursFromCoors(0, 1)).toBe(2);
@@ -46,7 +46,7 @@ describe('The World', () => {
 			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
-		const world = new World(initialStatus);
+		const world = World.createFrom(initialStatus);
 
 		expect(world.toString()).toBe(' [ ] [ ] [ ]\n [ ] [O] [O]\n [O] [ ] [ ]\n');
 	});
@@ -58,7 +58,7 @@ describe('The World', () => {
 			[Cell.create(Alive), Cell.create(Dead), Cell.create(Dead)],
 		];
 
-		const world = new World(initialStatus);
+		const world = World.createFrom(initialStatus);
 		const worldNextTick = world.getNextGeneration();
 
 		expect(worldNextTick.toString()).toBe(' [ ] [ ] [ ]\n [ ] [O] [ ]\n [ ] [O] [ ]\n');
@@ -148,7 +148,7 @@ describe('The World', () => {
 			],
 		];
 
-		const world = new World(initialStatus);
+		const world = World.createFrom(initialStatus);
 		const worldNextTick = world.getNextGeneration();
 
 		expect(worldNextTick.toString()).toBe(

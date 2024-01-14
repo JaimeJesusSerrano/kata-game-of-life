@@ -6,10 +6,14 @@ class World {
 	private readonly lastYIndex: number;
 	private readonly lastXIndex: number;
 
-	constructor(private cellMatrix: Cell[][]) {
+	private constructor(private cellMatrix: Cell[][]) {
 		this.cellMatrix = cellMatrix;
 		this.lastYIndex = cellMatrix.length - 1;
 		this.lastXIndex = cellMatrix.length - 1;
+	}
+
+	static createFrom(cellMatrix: Cell[][]) {
+		return new World(cellMatrix);
 	}
 
 	calculateNeighboursFromCoors = (x: number, y: number): number => {
