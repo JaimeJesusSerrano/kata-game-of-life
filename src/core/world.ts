@@ -14,24 +14,6 @@ class World {
 		this.lastXIndex = cellMatrix.length - 1;
 	}
 
-	getCellMatrix = () => this.cellMatrix;
-
-	toString = (): string => {
-		let stringToPrint = '';
-		const aliveCell = ' [O]';
-		const deadCell = ' [ ]';
-		const endOfLine = '\n';
-
-		for (let x = 0; x <= this.lastXIndex; x++) {
-			for (let y = 0; y <= this.lastYIndex; y++) {
-				const isCellAlive = this.cellMatrix[x][y].getStatus() === Alive;
-				stringToPrint += isCellAlive ? aliveCell : deadCell;
-			}
-			stringToPrint += endOfLine;
-		}
-		return stringToPrint;
-	};
-
 	calculateNeighboursFromCoors = (x: number, y: number): number => {
 		let numberOfNeighbours = 0;
 
@@ -54,26 +36,43 @@ class World {
 		return numberOfNeighbours;
 	};
 
+	getCellMatrix = () => this.cellMatrix;
+
 	getNextGeneration = (): World => {
 		const newCellMatrix = cloneDeep(this.cellMatrix);
 
 		for (let x = 0; x <= this.lastXIndex; x++) {
 			for (let y = 0; y <= this.lastYIndex; y++) {
 				const neighbors = this.calculateNeighboursFromCoors(x, y);
-				const newStatus = this.cellMatrix[x][y].calculateNextStatusBasedOnNeighbours(neighbors);
-				newCellMatrix[x][y].setStatus(newStatus);
+				newCellMatrix[x][y] = newCellMatrix[x][y].nextCellStatus(neighbors);
 			}
 		}
 
 		return new World(newCellMatrix);
 	};
 
-	private isCellMatrixValidByCoors = (x: number, y: number): boolean => {
-		return x >= 0 && x <= this.lastXIndex && y >= 0 && y <= this.lastYIndex;
+	toString = (): string => {
+		let stringToPrint = '';
+		const aliveCell = ' [O]';
+		const deadCell = ' [ ]';
+		const endOfLine = '\n';
+
+		for (let x = 0; x <= this.lastXIndex; x++) {
+			for (let y = 0; y <= this.lastYIndex; y++) {
+				const isCellAlive = this.cellMatrix[x][y].getStatus() === Alive;
+				stringToPrint += isCellAlive ? aliveCell : deadCell;
+			}
+			stringToPrint += endOfLine;
+		}
+		return stringToPrint;
 	};
 
 	private isAliveNeighboursByCoors = (x: number, y: number): boolean => {
 		return this.isCellMatrixValidByCoors(x, y) && this.cellMatrix[x][y].getStatus() === Alive;
+	};
+
+	private isCellMatrixValidByCoors = (x: number, y: number): boolean => {
+		return x >= 0 && x <= this.lastXIndex && y >= 0 && y <= this.lastYIndex;
 	};
 }
 

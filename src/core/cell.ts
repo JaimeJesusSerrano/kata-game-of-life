@@ -20,8 +20,8 @@ class Cell {
 		return this.status;
 	}
 
-	setStatus(status: CellStatus) {
-		this.status = status;
+	nextCellStatus(neighbours: number) {
+		return new Cell(this.calculateNextStatusBasedOnNeighbours(neighbours));
 	}
 
 	/*
@@ -30,7 +30,7 @@ class Cell {
 	 * Any live cell with two or three live neighbours lives on the next generation
 	 * Any dead cell with exactly three live neighbours becomes a live cell
 	 */
-	calculateNextStatusBasedOnNeighbours(neighbours: number): CellStatus {
+	private calculateNextStatusBasedOnNeighbours(neighbours: number): CellStatus {
 		if (this.isAlive() && neighbours < 2) return CellStatus.dead;
 		if (this.isAlive() && neighbours > 3) return CellStatus.dead;
 		if (this.isAlive() && (neighbours === 2 || neighbours === 3)) return CellStatus.alive;

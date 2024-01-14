@@ -18,28 +18,23 @@ describe('Cell', () => {
 		expect(cellDead.getStatus()).toBe(CellStatus.dead);
 	});
 
-	it('should be able to modify the cell status', () => {
-		cellDead.setStatus(CellStatus.alive);
-		expect(cellDead.getStatus()).toBe(CellStatus.alive);
-	});
-
 	it('any live cell with fewer than two live neighbours dies, as if caused by underpopulation', () => {
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(0)).toBe(CellStatus.dead);
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(1)).toBe(CellStatus.dead);
+		expect(cellAlive.nextCellStatus(0).getStatus()).toBe(CellStatus.dead);
+		expect(cellAlive.nextCellStatus(1).getStatus()).toBe(CellStatus.dead);
 	});
 
 	it('any live cell with more than three live neighbours dies, as if by overcrowding', () => {
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(4)).toBe(CellStatus.dead);
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(5)).toBe(CellStatus.dead);
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(6)).toBe(CellStatus.dead);
+		expect(cellAlive.nextCellStatus(4).getStatus()).toBe(CellStatus.dead);
+		expect(cellAlive.nextCellStatus(5).getStatus()).toBe(CellStatus.dead);
+		expect(cellAlive.nextCellStatus(6).getStatus()).toBe(CellStatus.dead);
 	});
 
 	it('any live cell with two or three live neighbours lives on the next generation', () => {
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(2)).toBe(CellStatus.alive);
-		expect(cellAlive.calculateNextStatusBasedOnNeighbours(3)).toBe(CellStatus.alive);
+		expect(cellAlive.nextCellStatus(2).getStatus()).toBe(CellStatus.alive);
+		expect(cellAlive.nextCellStatus(3).getStatus()).toBe(CellStatus.alive);
 	});
 
 	it('any dead cell with exactly three live neighbours becomes a live cell', () => {
-		expect(cellDead.calculateNextStatusBasedOnNeighbours(3)).toBe(CellStatus.alive);
+		expect(cellDead.nextCellStatus(3).getStatus()).toBe(CellStatus.alive);
 	});
 });
