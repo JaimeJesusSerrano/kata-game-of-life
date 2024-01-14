@@ -1,5 +1,3 @@
-import { cloneDeep } from 'lodash';
-
 import { Cell, CellStatus } from '../core/cell';
 
 const Alive = CellStatus.alive;
@@ -39,12 +37,13 @@ class World {
 	getCellMatrix = () => this.cellMatrix;
 
 	getNextGeneration = (): World => {
-		const newCellMatrix = cloneDeep(this.cellMatrix);
+		const newCellMatrix: Cell[][] = [];
 
 		for (let x = 0; x <= this.lastXIndex; x++) {
+			newCellMatrix[x] = [];
 			for (let y = 0; y <= this.lastYIndex; y++) {
 				const neighbors = this.calculateNeighboursFromCoors(x, y);
-				newCellMatrix[x][y] = newCellMatrix[x][y].nextCellStatus(neighbors);
+				newCellMatrix[x][y] = this.cellMatrix[x][y].nextCellStatus(neighbors);
 			}
 		}
 
